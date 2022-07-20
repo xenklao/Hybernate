@@ -25,11 +25,11 @@ public class Main {
         userService.saveUser("Барак", "Обама", (byte) 59);
         userService.saveUser("Джордж", "Буш", (byte) 74);
 
-        List<User> strings = userService.getAllUsers();
-        for (User s : strings)
+        List<User> userList = userService.getAllUsers();
+        for (User s : userList)
             System.out.println(s);
 
-        userService.removeUserById(2);
+        userService.removeUserById(userList.get(0).getId());
 
         userService.getAllUsers();
 

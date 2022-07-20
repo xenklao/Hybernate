@@ -21,7 +21,7 @@ public class Util {
                     .setProperty("hibernate.connection.url", HOST)
                     .setProperty("hibernate.connection.username", LOGIN)
                     .setProperty("hibernate.connection.password", PASSWORD)
-                    .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")
+                    .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect")
                     .addAnnotatedClass(User.class)
                     .setProperty("hibernate.c3p0.min_size","5")
                     .setProperty("hibernate.c3p0.max_size","200")

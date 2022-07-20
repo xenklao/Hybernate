@@ -1,5 +1,10 @@
 package jm.task.core.jdbc.dao;
 
+
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
@@ -11,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    private final SessionFactory sessionFactory = Util.getConnection();
-
+//    private SessionFactory sessionFactory; //= Util.getConnection();
+    private Session session;
 
     public UserDaoHibernateImpl() {
 
@@ -20,7 +25,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-        Session session = sessionFactory.openSession();
+
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -44,7 +50,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        Session session = sessionFactory.openSession();
+//        Session session = sessionFactory.openSession();
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -64,11 +71,13 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        Session session = sessionFactory.openSession();
+//        Session session = sessionFactory.openSession();
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
+//            Session session1 = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.save(new User(name, lastName, age));
+            session.persist(new User(name, lastName, age));
             //session.flush();
             //session.getTransaction().commit();
             transaction.commit();
@@ -86,7 +95,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void removeUserById(long id) {
-        Session session = sessionFactory.openSession();
+//        Session session = sessionFactory.openSession();
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -107,7 +117,8 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
-        Session session = sessionFactory.openSession();
+        //Session session = sessionFactory.openSession();
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -127,7 +138,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        Session session = sessionFactory.openSession();
+//        Session session = sessionFactory.openSession();
+        session = Util.getConnection().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
