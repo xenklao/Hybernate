@@ -10,7 +10,7 @@ import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import javax.persistence.criteria.CriteriaQuery;
+
 
 import java.util.ArrayList;
 import java.util.List;
