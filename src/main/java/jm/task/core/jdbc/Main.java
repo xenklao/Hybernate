@@ -27,10 +27,12 @@ public class Main {
 
 
         List<User> userList = userService.getAllUsers();
-        for (User s : userList)
-            System.out.println(s);
 
         userService.removeUserById(userList.get(0).getId());
+
+        userList = userService.getAllUsers();
+        for (User s : userList)
+            System.out.println(s);
 
         userService.getAllUsers();
 
