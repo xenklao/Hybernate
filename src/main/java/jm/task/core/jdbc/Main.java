@@ -14,7 +14,7 @@ public class Main {
 //    private static final UserDaoJDBCImpl userService = new UserDaoJDBCImpl();
     //    private static final User user1 = new User("Mitroy", "Gopit", (byte) 60);
 //    private static final User user2 = new User("Jija", "Top", (byte) 15);
-//    private static final User user3 = new User("Stariy", "Pes", (byte) 126);
+
 
 
     public static void main(String[] args)  {
